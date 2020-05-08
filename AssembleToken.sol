@@ -89,17 +89,17 @@ contract AssembleToken is ERC20Interface, OwnerHelper
     // Total                                        1,500,000,000
     uint constant public maxTotalSupply =           1500000000 * E18;
 
-    // Sale Supply                                   375,000,000 (25%)
-    uint constant public maxSaleSupply =             375000000 * E18;
+    // Sale Supply                                   300,000,000 (20%)
+    uint constant public maxSaleSupply =             300000000 * E18;
 
-    // Strategic Partners                            225,000,000 (15%)
-    uint constant public maxSPSupply =               225000000 * E18;
+    // Strategic Partners                            270,000,000 (18%)
+    uint constant public maxSPSupply =               270000000 * E18;
 
-    // EcoSystem                                     195,000,000 (13%)
-    uint constant public maxEcoSupply =              195000000 * E18;
+    // EcoSystem                                     240,000,000 (16%)
+    uint constant public maxEcoSupply =              240000000 * E18;
 
-    // Marketing                                     225,000,000 (15%)
-    uint constant public maxMktSupply =              225000000 * E18;
+    // Marketing                                     210,000,000 (14%)
+    uint constant public maxMktSupply =              210000000 * E18;
 
     // Development                                   180,000,000 (12%)
     uint constant public maxDevSupply =              180000000 * E18;
@@ -115,7 +115,7 @@ contract AssembleToken is ERC20Interface, OwnerHelper
     
     uint constant public seedSaleSupply =             40000000 * E18;
     uint constant public privateSaleSupply =         250000000 * E18;
-    uint constant public publicSaleSupply =           85000000 * E18;
+    uint constant public publicSaleSupply =           10000000 * E18;
         
     // Lock
     uint constant public teamVestingSupply =           3125000 * E18;
@@ -451,13 +451,13 @@ contract AssembleToken is ERC20Interface, OwnerHelper
         
         for(uint i = 0; i < teamVestingTime; i++)
         {
-            tmVestingTimer[i] = endSaleTime + teamVestingLockDate + (i * month);
+            tmVestingTimer[i] = endSaleTime + teamVestingLockDate + ((i+1) * month);
             tmVestingBalances[i] = teamVestingSupply;
         }
         
         for(uint i = 0; i < advisorVestingTime; i++)
         {
-            advVestingTimer[i] = endSaleTime + advisorVestingLockDate + (3 * i * month);
+            advVestingTimer[i] = endSaleTime + advisorVestingLockDate + (3 * (i+1) * month);
             advVestingBalances[i] = advisorVestingSupply;
         }
         
